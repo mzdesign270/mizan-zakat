@@ -42,10 +42,10 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'ميزان الزكاة',
-  url: 'https://mizan-zakat.com',
+  url: 'https://mizan-zakat.pages.dev',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://mizan-zakat.com/faq?q={search_term_string}',
+    target: 'https://mizan-zakat.pages.dev/faq?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 };

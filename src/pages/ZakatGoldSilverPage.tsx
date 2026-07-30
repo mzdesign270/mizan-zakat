@@ -67,6 +67,11 @@ export default function ZakatGoldSilverPage() {
         <h1 className="font-serif text-3xl font-bold text-[#1C1B19] mb-2">حاسبة زكاة الذهب والفضة</h1>
         <p className="text-muted-foreground mb-6">أدخل وزن ذهبك وعياره — ستظهر النتيجة فوراً.</p>
 
+        {goldError && (
+          <div className="bg-destructive/10 border border-destructive/20 text-destructive text-sm p-4 rounded-lg mb-6">
+            تعذر جلب أسعار الذهب اللحظية. يتم استخدام أسعار تقريبية حالياً.
+          </div>
+        )}
         <GoldPriceBanner isUsingFallback={isUsingFallback} goldPriceUSD={goldPriceUSD} exchangeRate={exchangeRate} currency={currency} isLoading={isGoldLoading} lastUpdatedAt={goldLastUpdatedAt} />
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">

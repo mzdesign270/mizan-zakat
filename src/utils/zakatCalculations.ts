@@ -61,7 +61,7 @@ function buildResult(
  */
 export function calculateGoldZakat(
   goldGrams: number,
-  karat: 24 | 22 | 21 | 18,
+  karat: number,
   silverGrams: number,
   goldPriceUSD: number,
   silverPriceUSD: number,

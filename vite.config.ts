@@ -15,13 +15,24 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    // Ensure the build is clean and compatible
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: undefined, // Simplify chunks to avoid loading issues
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-utils': ['wouter', '@tanstack/react-query', 'lucide-react'],
+          'ui-components': [
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-select',
+            '@radix-ui/react-tabs',
+            '@radix-ui/react-tooltip'
+          ],
+        },
       },
     },
+    chunkSizeWarningLimit: 600,
   },
   server: {
     port: 3000,

@@ -8,21 +8,29 @@ import { Footer } from '@/components/layout/Footer';
 import { ScrollToTopOnNav } from '@/components/routing/ScrollToTopOnNav';
 import { ScrollToTopButton } from '@/components/ui/ScrollToTopButton';
 
-// Pages
-import HomePage                    from '@/pages/HomePage';
-import ZakatGoldSilverPage         from '@/pages/ZakatGoldSilverPage';
-import ZakatCashPage               from '@/pages/ZakatCashPage';
-import ZakatStocksPage             from '@/pages/ZakatStocksPage';
-import ZakatSalaryPage             from '@/pages/ZakatSalaryPage';
-import ArticleZakatConditionsPage  from '@/pages/ArticleZakatConditionsPage';
-import ArticleNisabExplainedPage   from '@/pages/ArticleNisabExplainedPage';
-import ArticleZakatVsSadaqahPage   from '@/pages/ArticleZakatVsSadaqahPage';
-import FaqPage                     from '@/pages/FaqPage';
-import AboutPage                   from '@/pages/AboutPage';
-import PrivacyPolicyPage           from '@/pages/PrivacyPolicyPage';
-import TermsPage                   from '@/pages/TermsPage';
-import ContactPage                 from '@/pages/ContactPage';
-import NotFound                    from '@/pages/not-found';
+import { lazy, Suspense } from 'react';
+
+// Pages - Lazy Loaded
+const HomePage                    = lazy(() => import('@/pages/HomePage'));
+const ZakatGoldSilverPage         = lazy(() => import('@/pages/ZakatGoldSilverPage'));
+const ZakatCashPage               = lazy(() => import('@/pages/ZakatCashPage'));
+const ZakatStocksPage             = lazy(() => import('@/pages/ZakatStocksPage'));
+const ZakatSalaryPage             = lazy(() => import('@/pages/ZakatSalaryPage'));
+const ArticleZakatConditionsPage  = lazy(() => import('@/pages/ArticleZakatConditionsPage'));
+const ArticleNisabExplainedPage   = lazy(() => import('@/pages/ArticleNisabExplainedPage'));
+const ArticleZakatVsSadaqahPage   = lazy(() => import('@/pages/ArticleZakatVsSadaqahPage'));
+const FaqPage                     = lazy(() => import('@/pages/FaqPage'));
+const AboutPage                   = lazy(() => import('@/pages/AboutPage'));
+const PrivacyPolicyPage           = lazy(() => import('@/pages/PrivacyPolicyPage'));
+const TermsPage                   = lazy(() => import('@/pages/TermsPage'));
+const ContactPage                 = lazy(() => import('@/pages/ContactPage'));
+const NotFound                    = lazy(() => import('@/pages/not-found'));
+
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-[60vh]">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+  </div>
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,22 +46,24 @@ function AppRoutes() {
     <>
       <ScrollToTopOnNav />
       <Header />
-      <Switch>
-        <Route path="/"                           component={HomePage} />
-        <Route path="/zakat-gold-silver"          component={ZakatGoldSilverPage} />
-        <Route path="/zakat-cash"                 component={ZakatCashPage} />
-        <Route path="/zakat-stocks"               component={ZakatStocksPage} />
-        <Route path="/zakat-salary"               component={ZakatSalaryPage} />
-        <Route path="/articles/zakat-conditions" component={ArticleZakatConditionsPage} />
-        <Route path="/articles/nisab-explained"  component={ArticleNisabExplainedPage} />
-        <Route path="/articles/zakat-vs-sadaqah" component={ArticleZakatVsSadaqahPage} />
-        <Route path="/faq"                        component={FaqPage} />
-        <Route path="/about"                      component={AboutPage} />
-        <Route path="/privacy-policy"             component={PrivacyPolicyPage} />
-        <Route path="/terms"                      component={TermsPage} />
-        <Route path="/contact"                    component={ContactPage} />
-        <Route                                    component={NotFound} />
-      </Switch>
+      <Suspense fallback={<PageLoader />}>
+        <Switch>
+          <Route path="/"                           component={HomePage} />
+          <Route path="/zakat-gold-silver"          component={ZakatGoldSilverPage} />
+          <Route path="/zakat-cash"                 component={ZakatCashPage} />
+          <Route path="/zakat-stocks"               component={ZakatStocksPage} />
+          <Route path="/zakat-salary"               component={ZakatSalaryPage} />
+          <Route path="/articles/zakat-conditions" component={ArticleZakatConditionsPage} />
+          <Route path="/articles/nisab-explained"  component={ArticleNisabExplainedPage} />
+          <Route path="/articles/zakat-vs-sadaqah" component={ArticleZakatVsSadaqahPage} />
+          <Route path="/faq"                        component={FaqPage} />
+          <Route path="/about"                      component={AboutPage} />
+          <Route path="/privacy-policy"             component={PrivacyPolicyPage} />
+          <Route path="/terms"                      component={TermsPage} />
+          <Route path="/contact"                    component={ContactPage} />
+          <Route                                    component={NotFound} />
+        </Switch>
+      </Suspense>
       <Footer />
       <ScrollToTopButton />
     </>
