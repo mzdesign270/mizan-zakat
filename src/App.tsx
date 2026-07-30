@@ -9,9 +9,9 @@ import { ScrollToTopOnNav } from '@/components/routing/ScrollToTopOnNav';
 import { ScrollToTopButton } from '@/components/ui/ScrollToTopButton';
 
 import { lazy, Suspense } from 'react';
+import HomePage from '@/pages/HomePage';
 
 // Pages - Lazy Loaded
-const HomePage                    = lazy(() => import('@/pages/HomePage'));
 const ZakatGoldSilverPage         = lazy(() => import('@/pages/ZakatGoldSilverPage'));
 const ZakatCashPage               = lazy(() => import('@/pages/ZakatCashPage'));
 const ZakatStocksPage             = lazy(() => import('@/pages/ZakatStocksPage'));
