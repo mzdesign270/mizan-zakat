@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#FAF8F3"/>
+  <!-- Balance beam -->
+  <line x1="6" y1="14" x2="26" y2="14" stroke="#0F5C4C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Left pan -->
+  <circle cx="7" cy="14" r="2.5" fill="#0F5C4C"/>
+  <!-- Right pan -->
+  <circle cx="25" cy="14" r="2.5" fill="#0F5C4C"/>
+  <!-- Center post -->
+  <line x1="16" y1="14" x2="16" y2="24" stroke="#0F5C4C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Base -->
+  <line x1="11" y1="24" x2="21" y2="24" stroke="#0F5C4C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Arabic letter ز -->
+  <text x="16" y="12" font-family="serif" font-size="7" fill="#B8860B" text-anchor="middle" dominant-baseline="middle">ز</text>
+</svg>
