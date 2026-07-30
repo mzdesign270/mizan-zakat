@@ -21,7 +21,8 @@ export default defineConfig({
         manualChunks: {
           'vendor-react': ['react', 'react-dom'],
           'vendor-utils': ['wouter', '@tanstack/react-query', 'lucide-react'],
-          'ui-components': [
+          'vendor-forms': ['zod', 'react-hook-form', '@hookform/resolvers/zod'],
+          'vendor-ui': [
             '@radix-ui/react-accordion',
             '@radix-ui/react-dialog',
             '@radix-ui/react-dropdown-menu',

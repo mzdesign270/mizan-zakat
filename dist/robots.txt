@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mizan-zakat.com/sitemap.xml
+Sitemap: https://mizan-zakat.pages.dev/sitemap.xml
