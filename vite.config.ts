@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  // Force base path to be root for Cloudflare Pages
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -11,19 +13,13 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
     sourcemap: false,
+    // Ensure the build is clean and compatible
+    emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'wouter'],
-          ui: [
-            '@radix-ui/react-accordion',
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-select',
-            '@radix-ui/react-tabs'
-          ],
-        },
+        manualChunks: undefined, // Simplify chunks to avoid loading issues
       },
     },
   },
