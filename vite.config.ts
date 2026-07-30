@@ -19,17 +19,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor': ['react', 'react-dom', 'wouter', '@tanstack/react-query', 'lucide-react'],
-          'ui-library': [
+          'v': ['react', 'react-dom', 'wouter'],
+          'u': ['@tanstack/react-query', 'lucide-react'],
+          'f': ['zod', 'react-hook-form', '@hookform/resolvers/zod'],
+          'ui': [
             '@radix-ui/react-accordion',
             '@radix-ui/react-dialog',
             '@radix-ui/react-dropdown-menu',
             '@radix-ui/react-select',
             '@radix-ui/react-tabs',
-            '@radix-ui/react-tooltip',
-            'zod',
-            'react-hook-form',
-            '@hookform/resolvers/zod'
+            '@radix-ui/react-tooltip'
           ],
         },
       },

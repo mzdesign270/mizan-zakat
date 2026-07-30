@@ -94,7 +94,8 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--app-font-serif);
     font-weight: 600;
-    contain: content;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 50px;
   }
 }
 
